@@ -38,6 +38,8 @@ import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
 import { Route as AdminRidersRouteImport } from './routes/admin.riders'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminStaffRouteImport } from './routes/admin.staff'
+import { Route as AdminSubscriptionRouteImport } from './routes/admin.subscription'
+import { Route as AdminSupportRouteImport } from './routes/admin.support'
 import { Route as AdminWhatsappRouteImport } from './routes/admin.whatsapp'
 import { Route as DishSlugRouteImport } from './routes/dish.$slug'
 import { Route as RiderIndexRouteImport } from './routes/rider.index'
@@ -193,6 +195,16 @@ const AdminStaffRoute = AdminStaffRouteImport.update({
   path: '/staff',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminSubscriptionRoute = AdminSubscriptionRouteImport.update({
+  id: '/subscription',
+  path: '/subscription',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSupportRoute = AdminSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminWhatsappRoute = AdminWhatsappRouteImport.update({
   id: '/whatsapp',
   path: '/whatsapp',
@@ -268,6 +280,8 @@ export interface FileRoutesByFullPath {
   '/admin/riders': typeof AdminRidersRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/staff': typeof AdminStaffRoute
+  '/admin/subscription': typeof AdminSubscriptionRoute
+  '/admin/support': typeof AdminSupportRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
   '/dish/$slug': typeof DishSlugRoute
   '/rider/earnings': typeof RiderEarningsRoute
@@ -306,6 +320,8 @@ export interface FileRoutesByTo {
   '/admin/riders': typeof AdminRidersRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/staff': typeof AdminStaffRoute
+  '/admin/subscription': typeof AdminSubscriptionRoute
+  '/admin/support': typeof AdminSupportRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
   '/dish/$slug': typeof DishSlugRoute
   '/rider/earnings': typeof RiderEarningsRoute
@@ -347,6 +363,8 @@ export interface FileRoutesById {
   '/admin/riders': typeof AdminRidersRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/staff': typeof AdminStaffRoute
+  '/admin/subscription': typeof AdminSubscriptionRoute
+  '/admin/support': typeof AdminSupportRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
   '/dish/$slug': typeof DishSlugRoute
   '/rider/earnings': typeof RiderEarningsRoute
@@ -389,6 +407,8 @@ export interface FileRouteTypes {
     | '/admin/riders'
     | '/admin/settings'
     | '/admin/staff'
+    | '/admin/subscription'
+    | '/admin/support'
     | '/admin/whatsapp'
     | '/dish/$slug'
     | '/rider/earnings'
@@ -427,6 +447,8 @@ export interface FileRouteTypes {
     | '/admin/riders'
     | '/admin/settings'
     | '/admin/staff'
+    | '/admin/subscription'
+    | '/admin/support'
     | '/admin/whatsapp'
     | '/dish/$slug'
     | '/rider/earnings'
@@ -467,6 +489,8 @@ export interface FileRouteTypes {
     | '/admin/riders'
     | '/admin/settings'
     | '/admin/staff'
+    | '/admin/subscription'
+    | '/admin/support'
     | '/admin/whatsapp'
     | '/dish/$slug'
     | '/rider/earnings'
@@ -703,6 +727,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminStaffRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/subscription': {
+      id: '/admin/subscription'
+      path: '/subscription'
+      fullPath: '/admin/subscription'
+      preLoaderRoute: typeof AdminSubscriptionRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/support': {
+      id: '/admin/support'
+      path: '/support'
+      fullPath: '/admin/support'
+      preLoaderRoute: typeof AdminSupportRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/whatsapp': {
       id: '/admin/whatsapp'
       path: '/whatsapp'
@@ -784,6 +822,8 @@ interface AdminRouteChildren {
   AdminRidersRoute: typeof AdminRidersRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminStaffRoute: typeof AdminStaffRoute
+  AdminSubscriptionRoute: typeof AdminSubscriptionRoute
+  AdminSupportRoute: typeof AdminSupportRoute
   AdminWhatsappRoute: typeof AdminWhatsappRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AdminOrdersIdRoute: typeof AdminOrdersIdRoute
@@ -805,6 +845,8 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminRidersRoute: AdminRidersRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminStaffRoute: AdminStaffRoute,
+  AdminSubscriptionRoute: AdminSubscriptionRoute,
+  AdminSupportRoute: AdminSupportRoute,
   AdminWhatsappRoute: AdminWhatsappRoute,
   AdminIndexRoute: AdminIndexRoute,
   AdminOrdersIdRoute: AdminOrdersIdRoute,
